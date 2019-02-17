@@ -11,3 +11,5 @@ def products_list(request):
     print(products)
     return render(request, 'products_list.html', \
          context={'product_list': products})
+
+
