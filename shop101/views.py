@@ -22,10 +22,10 @@ def show_product(request, id):
 def cart(request):
     if request.method == 'POST':
         p_id = request.POST.get('product_id')
-        u_id = request.user.id
+        user = request.user
         cart_item = Cart()
-        cart_item.user_id = u_id
-        cart_item.product_id = p_id
+        cart_item.user_id = user
+        cart_item.product_id = Product.objects.get(id=p_id)
         cart_item.save()
 
         return redirect('/cart')
